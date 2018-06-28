@@ -34,3 +34,11 @@ urlpatterns += [
 urlpatterns += [
     path('', RedirectView.as_view(url='/visualizer/')),
 ]
+
+urlpatterns += [
+    path('add/', include('addLineItem.urls')),
+]
+
+urlpatterns += [
+    path('', RedirectView.as_view(url='/add/')),
+]
