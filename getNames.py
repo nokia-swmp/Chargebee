@@ -115,10 +115,44 @@ def useage(cust_id, date_from, date_to):
                             usedAmount += am*(date_to - date_from)/(dt - df)
     return usedAmount/100
 
+def listCustNames():
+    custList = []
+    custs = chargebee.Customer.list({})
+    for cust in custs:
+        custList.append(cust.customer.first_name + ' ' + cust.customer.last_name)
+        #custList.append({cust.customer.id: cust.customer.first_name + ' ' + cust.customer.last_name})
+    return custList
 
-u = initUsage()
-with open('usageJson.txt', 'w') as outfile:
-    json.dump(u, outfile)
+def listSubsNames(cust):
+    subsList = []
+    subs = chargebee.Subscription.list({})
+    for sub in subs:
+        if sub.customer.first_name + ' ' + sub.customer.last_name == cust:
+            subsList.append(sub.subscription.id)
+    return subsList
+
+def listSubsNames():
+    subsList = []
+    subs = chargebee.Subscription.list({})
+    for sub in subs:
+        subsList.append(sub.subscription.id)
+    return subsList
+
+def listSubsByCust():
+    subsDict = {}
+    subs = chargebee.Subscription.list({})
+    for sub in subs:
+        print(sub)
+        if sub.subscription.customer_id in subsDict:
+            subsDict[sub.subscription.customer_id].append(sub.subscription.id)
+        else:
+            subsDict[sub.subscription.customer_id] = [sub.subscription.id]
+    return subsDict
+
+print(listCustNames())
+#u = initUsage()
+#with open('usageJson.txt', 'w') as outfile:
+#    json.dump(u, outfile)
 #u_json = json.dumps(u)
 #write(u[sys.argv[1]])
 #print(useage(sys.argv[1], toDate(sys.argv[2]), toDate(sys.argv[3])))

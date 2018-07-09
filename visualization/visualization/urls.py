@@ -20,6 +20,9 @@ from django.urls import path
 from . import visualizertest
 #from . import visualizer
 from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -42,3 +45,11 @@ urlpatterns += [
 urlpatterns += [
     path('', RedirectView.as_view(url='/add/')),
 ]
+
+urlpatterns += [
+    path('addFormSubs/', include('addLineItem.urls')),
+]
+
+urlpatterns += [
+    path('', RedirectView.as_view(url='/addFormSubs/')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
