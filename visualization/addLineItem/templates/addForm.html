@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Add</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{% static 'js/addLineItem.js' %}"></script>
+
+</head>
+
+<body>
+    <form action='saveLineItem/' method="post">
+        {% csrf_token %}
+        <div>
+            <label for="custs">Customers</label>
+            <select id="custs", onchange='showSubscription(this)'>
+                <option>Make a selection</option>
+                {% for cust in custs %}
+                    <option>{{ cust }}</option>
+                {% endfor %}
+            </select>
+            </br>
+            </br>
+            <label for="subs">Subscriptions</label>
+                <select id="subs">
+                    <option>Make a selection</option>
+                    {% for cust, list in subs.items %}
+                        {% for sub in list %}
+                            <option value='{{ cust }}'>{{ sub }}</option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </br>
+            </br>
+        </div>
+        <div>
+            <label for="desc">Description</label>
+            <input type="textarea" id="desc"/>
+            </br>
+            </br>
+        </div>
+        <div>
+            <label for="start">Start date</label>
+            <input type="datetime-local" id="start" name="start" value="2018-01-01T00:00" min="2018-01-01T00:00" max="2018-04-30T23:59" />
+            </br>
+            <label for="end">End date</label>
+            <input type="datetime-local" id="end" name="end" value="2018-01-01T00:00" min="2018-01-01T00:00" max="2018-07-31T23:59" />
+        </div>
+        <input type="submit" id="saveLineItem" value="Submit">
+    </form>
+</body>
+</html>

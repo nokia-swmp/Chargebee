@@ -142,14 +142,13 @@ def listSubsByCust():
     subsDict = {}
     subs = chargebee.Subscription.list({})
     for sub in subs:
-        print(sub)
-        if sub.subscription.customer_id in subsDict:
-            subsDict[sub.subscription.customer_id].append(sub.subscription.id)
+        if sub.customer.first_name + ' ' + sub.customer.last_name in subsDict:
+            subsDict[sub.customer.first_name + ' ' + sub.customer.last_name].append(sub.subscription.id)
         else:
-            subsDict[sub.subscription.customer_id] = [sub.subscription.id]
+            subsDict[sub.customer.first_name + ' ' + sub.customer.last_name] = [sub.subscription.id]
     return subsDict
 
-print(listCustNames())
+#print(listSubsByCust())
 #u = initUsage()
 #with open('usageJson.txt', 'w') as outfile:
 #    json.dump(u, outfile)
