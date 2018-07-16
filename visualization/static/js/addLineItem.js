@@ -1,7 +1,7 @@
 function showSubscription(obj) {
     subs = document.getElementById("subs")
     for(i=0; i < subs.length; i++){
-        if(subs[i].value != obj.value){
+        if(subs[i].id != obj.value){
             subs[i].disabled = true;
         }
         else {

@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import getNames
+import add_testDb
 import addLineItem
 # Create your views here.
 
 def addForm(request):
-    print("Hello world")
     custs = getNames.listCustNames()
     #chosenCust = request.POST.get('custs', 'Austin Jones')
     subs = getNames.listSubsByCust()
@@ -34,6 +34,5 @@ def addFormSubs(request):
         )
 
 def saveLineItem(request):
-    print(request.method)
-    print(request.body)
-    return HttpResponse("ok")
+    add_testDb.addLineItem(request.POST['custs'], request.POST['subs'], request.POST['start'], request.POST['end'], request.POST['desc'])
+    return HttpResponse("Your line item is added to chargebee")

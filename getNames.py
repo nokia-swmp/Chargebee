@@ -42,7 +42,7 @@ def initUsage():
     for cust in customers:
         c = cust.customer
         if not c.deleted:
-            usage[c.id] = [c.first_name + " " + c.last_name, c.email, {"January": {}, "February": {}, "March": {}, "April": {}}]
+            usage[c.id] = [c.first_name + " " + c.last_name, c.email, {"January": {}, "February": {}, "March": {}, "April": {}, "May": {}, "June": {}, "July": {}, "August": {}}]
     
     start = "01/01/2018"
     jan = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
@@ -54,7 +54,14 @@ def initUsage():
     apr = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
     start = "01/05/2018"
     may = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
-
+    start = "01/06/2018"
+    jun = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
+    start = "01/07/2018"
+    jul = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
+    start = "01/08/2018"
+    aug = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
+    start = "01/09/2018"
+    sep = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
 
     entries = chargebee.Invoice.list({})
     
@@ -68,10 +75,42 @@ def initUsage():
             usage[c_id][2]["March"][entry.invoice.subscription_id] = {}
         if entry.invoice.subscription_id not in usage[c_id][2]["April"]:
             usage[c_id][2]["April"][entry.invoice.subscription_id] = {}
+        if entry.invoice.subscription_id not in usage[c_id][2]["May"]:
+            usage[c_id][2]["May"][entry.invoice.subscription_id] = {}
+        if entry.invoice.subscription_id not in usage[c_id][2]["June"]:
+            usage[c_id][2]["June"][entry.invoice.subscription_id] = {}
+        if entry.invoice.subscription_id not in usage[c_id][2]["July"]:
+            usage[c_id][2]["July"][entry.invoice.subscription_id] = {}
+        if entry.invoice.subscription_id not in usage[c_id][2]["August"]:
+            usage[c_id][2]["August"][entry.invoice.subscription_id] = {}
         for item in entry.invoice.line_items:
-            if item.date_from <= may:
-                if item.date_from >= apr:
-                    usage[c_id][2]["April"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+            if item.date_from <= sep and 'Plan' not in item.description:
+                if item.date_from >= aug:
+                    usage[c_id][2]["August"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+                elif item.date_from >= jul:
+                    if item.date_to < aug:
+                        usage[c_id][2]["July"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+                    else:
+                        usage[c_id][2]["July"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(apr), item.amount/100*(apr-item.date_from)/(item.date_to-item.date_from), item.description]
+                        usage[c_id][2]["August"][entry.invoice.subscription_id][item.id] = [toDate(apr), toDate(item.date_to), item.amount/100*(item.date_to-apr)/(item.date_to-item.date_from), item.description]
+                elif item.date_from >= jun:
+                    if item.date_to < jul:
+                        usage[c_id][2]["June"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+                    else:
+                        usage[c_id][2]["June"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(apr), item.amount/100*(apr-item.date_from)/(item.date_to-item.date_from), item.description]
+                        usage[c_id][2]["July"][entry.invoice.subscription_id][item.id] = [toDate(apr), toDate(item.date_to), item.amount/100*(item.date_to-apr)/(item.date_to-item.date_from), item.description]
+                elif item.date_from >= may:
+                    if item.date_to < jun:
+                        usage[c_id][2]["May"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+                    else:
+                        usage[c_id][2]["May"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(apr), item.amount/100*(apr-item.date_from)/(item.date_to-item.date_from), item.description]
+                        usage[c_id][2]["June"][entry.invoice.subscription_id][item.id] = [toDate(apr), toDate(item.date_to), item.amount/100*(item.date_to-apr)/(item.date_to-item.date_from), item.description]
+                elif item.date_from >= apr:
+                    if item.date_to < may:
+                        usage[c_id][2]["April"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
+                    else:
+                        usage[c_id][2]["April"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(apr), item.amount/100*(apr-item.date_from)/(item.date_to-item.date_from), item.description]
+                        usage[c_id][2]["May"][entry.invoice.subscription_id][item.id] = [toDate(apr), toDate(item.date_to), item.amount/100*(item.date_to-apr)/(item.date_to-item.date_from), item.description]
                 elif item.date_from >= mar:
                     if item.date_to < apr:
                         usage[c_id][2]["March"][entry.invoice.subscription_id][item.id] = [toDate(item.date_from), toDate(item.date_to), item.amount/100, item.description]
