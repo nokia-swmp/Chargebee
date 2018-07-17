@@ -10,7 +10,6 @@ import sys
 import json
 import datetime
 import time
-import datetime
 
 chargebee.ChargeBee.verify_ca_certs = False
 chargebee.configure("test_ac68LkfLCfkacuYl5wINzwgZR9uzTecuzd","nokia-swmp-test")

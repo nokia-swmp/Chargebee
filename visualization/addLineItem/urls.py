@@ -5,6 +5,5 @@ from . import views
 urlpatterns = [
     path('saveLineItem/', views.saveLineItem, name='saveLineItem'),
     path('', views.addForm, name='addForm'),
-    path('', views.addFormSubs, name='addFormSubs'),
 ]
     

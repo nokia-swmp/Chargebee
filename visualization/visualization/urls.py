@@ -40,24 +40,4 @@ urlpatterns += [
 
 urlpatterns += [
     path('add/', include('addLineItem.urls')),
-]
-
-urlpatterns += [
-    path('', RedirectView.as_view(url='/add/')),
-]
-
-urlpatterns += [
-    path('addFormSubs/', include('addLineItem.urls')),
-]
-
-urlpatterns += [
-    path('add/saveLineItem/', include('addLineItem.urls')),
-]
-
-urlpatterns += [
-    path('', RedirectView.as_view(url='/saveLineItem/')),
-]
-
-urlpatterns += [
-    path('', RedirectView.as_view(url='/addFormSubs/')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
