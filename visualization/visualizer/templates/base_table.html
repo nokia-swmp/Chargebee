@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Usage</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  {% for user, list in usage.items %}
+    <table style="width:100%">
+      <tr>
+        <th>{{ user }}</th>
+      </tr>
+      <tr>
+        <td>{{ list.0 }}</td>
+        <td>{{ list.1 }}</td>
+      </tr>
+      <tr class="blank_row">
+        <td bgcolor="#FFF" colspan="4">&nbsp;</td>
+      </tr>
+      {% for month, subs in list.2.items %}
+        <tr>
+          <td><strong>{{ month }}</strong></td>
+        </tr>
+        {% for subsc, line_items in subs.items %}
+          <th>
+            <td><strong>Subscription ID</strong></td>
+            <td><strong>Start date</strong></td>
+            <td><strong>End date</strong></td>
+            <td><strong>Amount</strong></td>
+            <td><strong>Description</strong></td>
+          </th>
+          <tr>
+            <td></td>
+            <td>{{subsc}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          {% for id, dataList in line_items.items %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td>{{ dataList.0 }}</td>
+              <td>{{ dataList.1 }}</td>
+              <td>{{ dataList.2 }}</td>
+              <td>{{ dataList.3 }}</td>
+            </tr>
+          {% endfor %}
+          <tr class="blank_row">
+            <td bgcolor="#FFF" colspan="6">&nbsp;</td>
+          </tr>
+        {% endfor %}
+        <tr class="blank_row">
+          <td bgcolor="#FFF" colspan="6">&nbsp;</td>
+        </tr>
+      {% endfor %}
+      </tr>
+      <tr class="blank_row">
+        <td bgcolor="#000" colspan="6">&nbsp;</td>
+      </tr>
+    </table>
+  {% endfor %}
+</body>
+</html>

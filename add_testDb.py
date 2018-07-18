@@ -37,23 +37,23 @@ def findInvoice(cust, subs):
             return inv.invoice
     return false
 
-def addLineItem(customer, subscription, start, end, description):
+def addLineItem(customer, subscription, start, end, description, amount):
     start = start.replace('T',' ')
     end = end.replace('T',' ')
     s = time.mktime(datetime.datetime.strptime(start, "%Y-%m-%d %H:%M").timetuple())
     e = time.mktime(datetime.datetime.strptime(end, "%Y-%m-%d %H:%M").timetuple())
     inv = findInvoice(customer, subscription)
+    #print(amount, float(amount), (int(e)-int(s))/1000*float(amount))
     if inv:
         print(inv.id, description, int(s), int(e))
         result = chargebee.Invoice.add_charge(inv.id, {
-            "amount" : 4000, 
+            "amount" : (int(e)-int(s))/3600*float(amount), 
             "description" : description,
             "line_item[date_from]" : int(s),
             "line_item[date_to]" : int(e)
         })
         #for inv in invId:
         #    print(inv)
-
 '''
 addByHand()
 entry = chargebee.Invoice.list({})

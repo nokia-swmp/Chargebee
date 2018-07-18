@@ -34,5 +34,5 @@ def addFormSubs(request):
         )
 
 def saveLineItem(request):
-    add_testDb.addLineItem(request.POST['custs'], request.POST['subs'], request.POST['start'], request.POST['end'], request.POST['desc'])
+    add_testDb.addLineItem(request.POST['custs'], request.POST['subs'], request.POST['start'], request.POST['end'], request.POST['desc'], request.POST['amount'])
     return HttpResponse("Your line item is added to chargebee")
