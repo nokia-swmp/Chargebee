@@ -46,8 +46,9 @@ def addLineItem(customer, subscription, start, end, description, amount):
     #print(amount, float(amount), (int(e)-int(s))/1000*float(amount))
     if inv:
         print(inv.id, description, int(s), int(e))
+        am = int((int(e)-int(s))/36*float(amount))
         result = chargebee.Invoice.add_charge(inv.id, {
-            "amount" : (int(e)-int(s))/3600*float(amount), 
+            "amount" : am,
             "description" : description,
             "line_item[date_from]" : int(s),
             "line_item[date_to]" : int(e)
