@@ -20,7 +20,7 @@ def addByHand():
     end = "04/07/2018 06:40"
     e = time.mktime(datetime.datetime.strptime(end, "%d/%m/%Y %H:%M").timetuple())
 
-
+    # parameter of chargebee.Invoice.add_charge()  to be set for different invoices
     result = chargebee.Invoice.add_charge("draft_inv_1mk51bnQxg0uPxRRZ", {
         "amount" : 4000, 
         "description" : "eNodeB_demo_1_jul",
@@ -29,6 +29,7 @@ def addByHand():
         })
     invoice = result.invoice
 
+# should use customer too
 def findInvoice(cust, subs):
     invs = chargebee.Invoice.list({})
     for inv in invs:
@@ -63,3 +64,6 @@ for k in entry:
 
 print(s,e)
 '''
+#TODO: findInvoice to be corrected so that it searches for the subscription of the given custumer
+#TODO: In AddLineItem if findInvoice returns False, print something else for the customer
+#TODO: AddForm's input validation needs to be done
