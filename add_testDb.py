@@ -35,7 +35,7 @@ def findInvoice(cust, subs):
         print(inv.invoice.subscription_id, inv.invoice.id)
         if inv.invoice.subscription_id == subs and 'draft' in inv.invoice.id:
             return inv.invoice
-    return false
+    return False
 
 def addLineItem(customer, subscription, start, end, description, amount):
     start = start.replace('T',' ')
