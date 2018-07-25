@@ -17,7 +17,6 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from . import visualizertest
 #from . import visualizer
 from django.views.generic import RedirectView
 from django.conf import settings
@@ -27,7 +26,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^visualizertest/', visualizertest.main)
+#    url(r'^visualizertest/', visualizertest.main)
 ]
 
 urlpatterns += [
