@@ -1,8 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  
+    <link href="{% static 'css/addForm.css' %}" rel="stylesheet">
   {% block title %}<title>Add</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,50 +12,64 @@
 </head>
 
 <body>
-    <form action='saveLineItem/' method="post">
+    <header id="white">
+        <h2>Nokia | Software</h2>
+    </header>
+    <header id="blue">
+        <h1>ChargeBee Data Portal</h1>
+        <h4>Get ChargeBee user data</h4>
+    </header>
+    <div align="center">
+        <h2>Add a New User</h2>
+        <h4>Please add new user activity to existing subscriptions</h4>
+        <form action='saveLineItem/' method="post">
         {% csrf_token %}
-        <div>
-            <label for="custs">Customers</label>
-            <select id="custs" name='custs' onchange='showSubscription(this)'>
-                <option>Make a selection</option>
-                {% for cust in custs %}
-                    <option>{{ cust }}</option>
-                {% endfor %}
-            </select>
-            </br>
-            </br>
-            <label for="subs">Subscriptions</label>
-                <select id="subs" name='subs'>
+            <div>
+                <label for="custs">Customers</label></br>
+                <select id="custs" name='custs' onchange='showSubscription(this)'>
                     <option>Make a selection</option>
-                    {% for cust, list in subs.items %}
-                        {% for sub in list %}
-                            <option id='{{ cust }}' value='{{ sub }}'>{{ sub }}</option>
-                        {% endfor %}
+                    {% for cust in custs %}
+                        <option>{{ cust }}</option>
                     {% endfor %}
                 </select>
-            </br>
-            </br>
-        </div>
-        <div>
-            <label for="desc">Description</label>
-            <input type="textarea" id="desc" name='desc'/>
-            </br>
-            </br>
-        </div>
-        <div>
-            <label for="amount">Per unit (hour) price</label>
-            <input type="textarea" id="amount" name='amount'/>
-            </br>
-            </br>
-        </div>
-        <div>
-            <label for="start">Start date</label>
-            <input type="datetime-local" id="start" name="start" value="2018-07-01T00:00" min="2018-07-01T00:00" max="2018-07-31T23:59" />
-            </br>
-            <label for="end">End date</label>
-            <input type="datetime-local" id="end" name="end" value="2018-07-01T00:00" min="2018-07-01T00:00" max="2018-07-31T23:59" />
-        </div>
-        <input type="submit" id="saveLineItem" value="Submit">
-    </form>
+                </br>
+                </br>
+                <label for="subs">Subscriptions</label>
+                    <select id="subs" name='subs'>
+                        <option>Make a selection</option>
+                        {% for cust, list in subs.items %}
+                            {% for sub in list %}
+                                <option id='{{ cust }}' value='{{ sub }}'>{{ sub }}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                </br>
+                </br>
+            </div>
+            <div>
+                <label for="desc">Description</label>
+                <input type="textarea" id="desc" name='desc'/>
+                </br>
+                </br>
+            </div>
+            <div>
+                <label for="amount">Per unit (hour) price</label>
+                <input type="textarea" id="amount" name='amount'/>
+                </br>
+                </br>
+            </div>
+            <div>
+                <label for="start">Start date</label>
+                <input type="datetime-local" id="start" name="start" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
+                </br>
+                <label for="end">End date</label>
+                <input type="datetime-local" id="end" name="end" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
+            </div>
+            <input type="submit" id="saveLineItem" value="Submit">
+        </form>
+    </div>
+    <footer>
+        &copy 2018 Nokia. All rights reserved. Cookies Privacy Terms
+    </footer>
 </body>
 </html>

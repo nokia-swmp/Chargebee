@@ -6,4 +6,3 @@ urlpatterns = [
     path('saveLineItem/', views.saveLineItem, name='saveLineItem'),
     path('', views.addForm, name='addForm'),
 ]
-    
