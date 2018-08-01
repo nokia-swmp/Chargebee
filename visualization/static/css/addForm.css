@@ -1,11 +1,32 @@
-#blue {
+body {
+	height: 100%;
+}
+
+#whiteHeader {
+	padding: 20px 0 20px 5px;
+}
+
+#AllNokiaSites {
+	position: absolute;
+	right: 30px;
+	
+}
+
+#blueHeader {
     color: #ffffff;
     background-color: #124191;
     padding: 20px 0 20px 10px;
     margin: 0 0 0 0;
 }
 
-#lamantin{
-	color: blue;
+#mainForm {
+	width: 500;
+	margin: auto;
 }
+
+footer {
+	position: absolute;
+	bottom: 20px;
+}
+
 
