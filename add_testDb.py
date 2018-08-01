@@ -31,9 +31,9 @@ def addByHand():
 
 # should use customer too
 def findInvoice(cust, subs):
-    invs = chargebee.Invoice.list({})
+    invs = chargebee.Invoice.list({'limit': 100})
     for inv in invs:
-        print(inv.invoice.subscription_id, inv.invoice.id)
+        #print(inv)
         if inv.invoice.subscription_id == subs and 'draft' in inv.invoice.id:
             return inv.invoice
     return False
@@ -45,6 +45,7 @@ def addLineItem(customer, subscription, start, end, description, amount):
     e = time.mktime(datetime.datetime.strptime(end, "%Y-%m-%d %H:%M").timetuple())
     inv = findInvoice(customer, subscription)
     #print(amount, float(amount), (int(e)-int(s))/1000*float(amount))
+    print(inv)
     if inv:
         print(inv.id, description, int(s), int(e))
         am = int((int(e)-int(s))/36*float(amount))
