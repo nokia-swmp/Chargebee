@@ -45,9 +45,9 @@ def addLineItem(customer, subscription, start, end, description, amount):
     e = time.mktime(datetime.datetime.strptime(end, "%Y-%m-%d %H:%M").timetuple())
     inv = findInvoice(customer, subscription)
     #print(amount, float(amount), (int(e)-int(s))/1000*float(amount))
-    print(inv)
+    #print(inv)
     if inv:
-        print(inv.id, description, int(s), int(e))
+        #print(inv.id, description, int(s), int(e))
         am = int((int(e)-int(s))/36*float(amount))
         result = chargebee.Invoice.add_charge(inv.id, {
             "amount" : am,
