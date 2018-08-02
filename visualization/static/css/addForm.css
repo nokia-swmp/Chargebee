@@ -10,9 +10,20 @@
         local('NokiaPureText_Medium');
 }
 
+@font-face{
+    font-family: 'NokiaPureHeadline_Light';
+    src: url('../fonts/NokiaPureHeadline_Light.ttf') format("truetype"),
+        local('NokiaPureHeadline_Light');
+}
+
 .textStyle {
     font-family: NokiaPureHeadline_Ultralight;
     font-size: 54px;
+}
+
+.textStyle2 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 24px;
 }
 
 label {
