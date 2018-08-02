@@ -4,9 +4,21 @@
         local('NokiaPureHeadline_Ultralight');
 }
 
+@font-face {
+    font-family: 'NokiaPureText_Medium';
+    src: url('../fonts/NokiaPureText-Medium.ttf') format("truetype"),
+        local('NokiaPureText_Medium');
+}
+
 .textStyle {
-    font-family: NokiaPureHeadline_Ultralight ;
+    font-family: NokiaPureHeadline_Ultralight;
     font-size: 54px;
+}
+
+label {
+    font-family: NokiaPureText_Medium;
+    font-size: 12px;
+    color: #787878;
 }
 
 body {

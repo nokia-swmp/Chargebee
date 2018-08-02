@@ -34,7 +34,7 @@
                 </select>
                 </br>
                 </br>
-                <label for="subs">Subscriptions</label>
+                <label for="subs">Subscriptions</label></br>
                     <select id="subs" name='subs'>
                         <option>Make a selection</option>
                         {% for cust, list in subs.items %}
@@ -47,22 +47,22 @@
                 </br>
             </div>
             <div>
-                <label for="desc">Description</label>
+                <label for="desc">Description</label></br>
                 <input type="textarea" id="desc" name='desc'/>
                 </br>
                 </br>
             </div>
             <div>
-                <label for="amount">Per unit (hour) price</label>
+                <label for="amount">Per unit (hour) price</label></br>
                 <input type="textarea" id="amount" name='amount'/>
                 </br>
                 </br>
             </div>
             <div>
-                <label for="start">Start date</label>
+                <label for="start">Start date</label></br>
                 <input type="datetime-local" id="start" name="start" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
                 </br>
-                <label for="end">End date</label>
+                <label for="end">End date</label></br>
                 <input type="datetime-local" id="end" name="end" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
             </div>
             <input type="submit" id="saveLineItem" value="Submit">
