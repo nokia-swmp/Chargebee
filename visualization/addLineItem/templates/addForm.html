@@ -27,33 +27,29 @@
 		</div>
         <form action='saveLineItem/' method="post">
         {% csrf_token %}
-            <div>
-                <label for="custs">Customer Name</label></br>
-                <select id="custs" class="FullWidthFormItem" name='custs' onchange='showSubscription(this)'>
+			<div class="inputdiv">
+				<label for="custs">Customer Name</label></br>
+				<select id="custs" class="FullWidthFormItem" name='custs' onchange='showSubscription(this)'>
 					<option value="" disabled selected>Make a selection</option>
-                    {% for cust in custs %}
-                        <option>{{ cust }}</option>
-                    {% endfor %}
-                </select>
-                </br>
-                </br>
-                <label for="subs">Subscriptions</label></br>
-                    <select id="subs" class="FullWidthFormItem" name='subs'>
-						<option value="" disabled selected>Make a selection</option>
-                        {% for cust, list in subs.items %}
-                            {% for sub in list %}
-                                <option id='{{ cust }}' value='{{ sub }}'>{{ sub }}</option>
-                            {% endfor %}
-                        {% endfor %}
-                    </select>
-                </br>
-                </br>
-            </div>
-            <div>
+					{% for cust in custs %}
+						<option>{{ cust }}</option>
+					{% endfor %}
+               </select>
+			</div>
+			<div class="inputdiv">
+               <label for="subs">Subscriptions</label></br>
+                   <select id="subs" class="FullWidthFormItem" name='subs'>
+					<option value="" disabled selected>Make a selection</option>
+                       {% for cust, list in subs.items %}
+                           {% for sub in list %}
+                               <option id='{{ cust }}' value='{{ sub }}'>{{ sub }}</option>
+                           {% endfor %}
+                       {% endfor %}
+                   </select>
+			</div>
+            <div class="inputdiv">
                 <label for="amount">Per unit (hour) price</label></br>
                 <input type="textarea" id="amount" class="FullWidthFormItem" name='amount'/>
-                </br>
-                </br>
             </div>
             <table id="datesTable" >
 				<tr id="datesRow">
@@ -67,11 +63,9 @@
 					</td>
 				</tr>
             </table>
-			<div>
+			<div class="inputdiv">
                 <label for="desc">Description</label></br>
                 <input type="textarea" id="desc" class="FullWidthFormItem" name='desc'/>
-                </br>
-                </br>
             </div>
             <input type="submit" id="saveLineItem" value="Submit">
         </form>

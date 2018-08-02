@@ -36,6 +36,15 @@
     font-size: 24px;
 }
 
+body {
+	height: 100%;
+	margin: 0;
+}
+
+#whiteHeader {
+	padding: 20px 0 20px 5px;
+}
+
 #blueHeaderSubtitle {
     position: relative;
     top: -40px;
@@ -51,20 +60,6 @@
 
 #greyFormHeader {
     color: #787878;
-}
-
-body {
-	height: 100%;
-}
-
-label {
-    font-family: NokiaPureText_Medium;
-    font-size: 12px;
-    color: #787878;
-}
-
-#whiteHeader {
-	padding: 20px 0 20px 5px;
 }
 
 #AllNokiaSites {
@@ -91,8 +86,31 @@ label {
 	width: 100%;
 }
 
-#amount {
+.FullWidthFormItem, input[type=datetime-local] {
+	margin-top: 3px;
+}
 
+input[type=textarea], input[type=datetime-local], input[type=submit]{
+	border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+input[type=textarea]:focus, input[type=datetime-local]:focus, select:focus{
+	border: 2px solid rgb(64,126,231);
+}
+
+.inputdiv {
+	margin: 0 0 10px 0;
+}
+
+label {
+    font-family: NokiaPureText_Medium;
+    font-size: 12px;
+    color: #787878;
+}
+
+input[type=textarea] {
+	padding: 2px 0 2px 5px;
 }
 
 #datesTable {
@@ -131,7 +149,11 @@ label {
 	padding: 5px;
 	color: white;
 	background-color: #124191;
-	border-radius: 6px;
+	border: none;
+}
+
+#saveLineItem:hover {
+	cursor: pointer;
 }
 
 footer {
