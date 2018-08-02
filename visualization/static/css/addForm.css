@@ -135,6 +135,9 @@ label {
 }
 
 footer {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 19px;
+    letter-spacing: 0.7px;
 	position: fixed;
 	bottom: 5px;
 }
