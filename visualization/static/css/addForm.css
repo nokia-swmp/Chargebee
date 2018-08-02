@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'NokiaPureHeadline_Ultralight';
+    src: url('../fonts/NokiaPureHeadline_Ultralight.ttf') format("truetype"),
+        local('NokiaPureHeadline_Ultralight');
+}
+
+.textStyle {
+    font-family: NokiaPureHeadline_Ultralight ;
+    font-size: 54px;
+}
+
 body {
 	height: 100%;
 }
