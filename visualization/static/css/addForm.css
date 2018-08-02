@@ -85,7 +85,7 @@ body {
 	padding: 20px 0 20px 5px;
 }
 
-#AllNokiaSites {
+#whiteHeader-tail {
 	position: absolute;
 	right: 30px;
 	font-family: NokiaPureHeadline_Light;
@@ -115,12 +115,12 @@ body {
 	margin-top: 3px;
 }
 
-input[type=textarea], input[type=datetime-local], input[type=submit]{
+input[type=textarea], input[type=datetime-local], input[type=submit], textarea{
 	border: 1px solid #cccccc;
     border-radius: 4px;
 }
 
-input[type=textarea]:focus, input[type=datetime-local]:focus, select:focus{
+input[type=textarea]:focus, input[type=datetime-local]:focus, select:focus, textarea:focus{
 	border: 2px solid rgb(64,126,231);
 	outline: none;
 }
@@ -164,7 +164,11 @@ input[type=textarea] {
 }
 
 #desc {
-	height: 50px;
+	/*height: 50px;*/
+}
+
+textarea {
+  resize: none;
 }
 
 #saveLineItem {
