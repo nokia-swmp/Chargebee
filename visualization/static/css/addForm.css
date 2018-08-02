@@ -82,7 +82,7 @@ label {
 
 #mainForm {
 	border: border: 2px solid red;
-	width: 30%;
+	width: 28%;
 	margin: auto;
 	
 }
@@ -91,12 +91,14 @@ label {
 	width: 100%;
 }
 
-#desc {
-	height: 50px;
+#amount {
+
 }
 
 #datesTable {
-	
+	position: relative;
+	top: -10px;
+	left: -2px;
 }
 
 #startdate {
@@ -117,6 +119,10 @@ label {
 	display:inline-block
 }
 
+#desc {
+	height: 50px;
+}
+
 #saveLineItem {
 	width: 100px;
 	height: 35px;
@@ -130,7 +136,7 @@ label {
 
 footer {
 	position: fixed;
-	bottom: 20px;
+	bottom: 5px;
 }
 
 

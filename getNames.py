@@ -38,7 +38,7 @@ def toDate(timestamp):
 
 # returns the data from ChargeBee
 def initUsage():
-    customers = chargebee.Customer.list({})
+    customers = chargebee.Customer.list({'limit': 100})
     
     usage = {}
     
@@ -69,7 +69,7 @@ def initUsage():
     sep = time.mktime(datetime.datetime.strptime(start, "%d/%m/%Y").timetuple())
 
     # list of Invoices
-    entries = chargebee.Invoice.list({})
+    entries = chargebee.Invoice.list({'limit': 100})
     # for each Invoice:
     for entry in entries:
         c_id = entry.invoice.customer_id        # set customer_id
@@ -173,7 +173,7 @@ def useage(cust_id, date_from, date_to):    # total amount for a single customer
 # returns: List of names of customers
 def listCustNames():
     custList = []
-    custs = chargebee.Customer.list({})
+    custs = chargebee.Customer.list({'limit': 100})
     for cust in custs:
         custList.append(cust.customer.first_name + ' ' + cust.customer.last_name)
         #custList.append({cust.customer.id: cust.customer.first_name + ' ' + cust.customer.last_name})
@@ -182,7 +182,7 @@ def listCustNames():
 # input: Customer name ; return: Customer's list of subsr_id-s
 def listSubsNames(cust):
     subsList = []
-    subs = chargebee.Subscription.list({})
+    subs = chargebee.Subscription.list({'limit': 100})
     for sub in subs:
         if sub.customer.first_name + ' ' + sub.customer.last_name == cust:
             subsList.append(sub.subscription.id)
@@ -191,7 +191,7 @@ def listSubsNames(cust):
 # (!!! no overload in python !!!) return: a list with all subscription_id-s
 def listSubsNames():
     subsList = []
-    subs = chargebee.Subscription.list({})
+    subs = chargebee.Subscription.list({'limit': 100})
     for sub in subs:
         subsList.append(sub.subscription.id)
     return subsList
@@ -199,7 +199,7 @@ def listSubsNames():
 # return: {customer name: [customer's subsriptions' ID list]}  dictionary
 def listSubsByCust():       
     subsDict = {}
-    subs = chargebee.Subscription.list({})
+    subs = chargebee.Subscription.list({'limit': 100})
     for sub in subs:
         if sub.customer.first_name + ' ' + sub.customer.last_name in subsDict:
             subsDict[sub.customer.first_name + ' ' + sub.customer.last_name].append(sub.subscription.id)
