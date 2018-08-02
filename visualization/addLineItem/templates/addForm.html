@@ -16,13 +16,14 @@
         <div id="header1">Nokia | Software<span id="AllNokiaSites">All Nokia Sites</span></div>
     </header>
     <header id="blueHeader">
-        <p class="textStyle">ChargeBee Data Portal</p>
-        <p class="textStyle2">Get ChargeBee user data</p>
+        <p class="textStyle">ChargeBee Data Portal
+            </br><span class="textStyle2" id="blueHeaderSubtitle">Get ChargeBee user data</span>
+        </p>
     </header>
     <div id="mainForm">
 		<div id="formHeader">
-			<h2>Add a New User</h2>
-			<h4>Please add new user activity to existing subscriptions</h4>
+			<p id="blueFormHeader" class="textStyle3">Add a New User</p>
+			<p id="greyFormHeader" class="textStyle4">Please add new user activity to existing subscriptions</p>
 		</div>
         <form action='saveLineItem/' method="post">
         {% csrf_token %}

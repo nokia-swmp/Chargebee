@@ -26,14 +26,41 @@
     font-size: 24px;
 }
 
-label {
-    font-family: NokiaPureText_Medium;
-    font-size: 12px;
+.textStyle3 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 28px;
+}
+
+.textStyle4 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 24px;
+}
+
+#blueHeaderSubtitle {
+    position: relative;
+    top: -40px;
+}
+
+#formHeader {
+    text-align: center;
+}
+
+#blueFormHeader {
+    color: #124191;
+}
+
+#greyFormHeader {
     color: #787878;
 }
 
 body {
 	height: 100%;
+}
+
+label {
+    font-family: NokiaPureText_Medium;
+    font-size: 12px;
+    color: #787878;
 }
 
 #whiteHeader {
@@ -48,8 +75,8 @@ body {
 
 #blueHeader {
     color: #ffffff;
-    background-color: #124191;
-    padding: 20px 0 20px 10px;
+    background-color: #124291;
+    padding: 20px 0 0 20px;
     margin: 0 0 0 0;
 }
 
@@ -102,7 +129,7 @@ body {
 }
 
 footer {
-	position: absolute;
+	position: fixed;
 	bottom: 20px;
 }
 
