@@ -135,7 +135,7 @@ label {
     color: #787878;
 }
 
-input[type=textarea] {
+input[type=textarea], textarea {
 	padding: 2px 0 2px 5px;
 }
 
