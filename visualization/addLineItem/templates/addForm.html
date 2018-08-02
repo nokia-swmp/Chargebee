@@ -27,8 +27,8 @@
         <form action='saveLineItem/' method="post">
         {% csrf_token %}
             <div>
-                <label for="custs">Customers</label></br>
-                <select id="custs" name='custs' onchange='showSubscription(this)'>
+                <label for="custs">Customer Name</label></br>
+                <select id="custs" class="FullWidthFormItem" name='custs' onchange='showSubscription(this)'>
                     <option>Make a selection</option>
                     {% for cust in custs %}
                         <option>{{ cust }}</option>
@@ -37,7 +37,7 @@
                 </br>
                 </br>
                 <label for="subs">Subscriptions</label></br>
-                    <select id="subs" name='subs'>
+                    <select id="subs" class="FullWidthFormItem" name='subs'>
                         <option>Make a selection</option>
                         {% for cust, list in subs.items %}
                             {% for sub in list %}
@@ -50,23 +50,28 @@
             </div>
             <div>
                 <label for="desc">Description</label></br>
-                <input type="textarea" id="desc" name='desc'/>
+                <input type="textarea" id="desc" class="FullWidthFormItem" name='desc'/>
                 </br>
                 </br>
             </div>
             <div>
                 <label for="amount">Per unit (hour) price</label></br>
-                <input type="textarea" id="amount" name='amount'/>
+                <input type="textarea" id="amount" class="FullWidthFormItem" name='amount'/>
                 </br>
                 </br>
             </div>
-            <div>
-                <label for="start">Start date</label></br>
-                <input type="datetime-local" id="start" name="start" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
-                </br>
-                <label for="end">End date</label></br>
-                <input type="datetime-local" id="end" name="end" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
-            </div>
+            <table id="datesTable" >
+				<tr id="datesRow">
+					<td id="startdate">
+						<label for="start">Start date</label></br>
+						<input type="datetime-local" id="start" name="start" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
+					</td>
+					<td id="enddate">
+						<label for="end">End date</label></br>
+						<input type="datetime-local" id="end" name="end" value="2018-08-01T00:00" min="2018-08-01T00:00" max="2018-08-31T23:59" />
+					</td>
+				</tr>
+            </table>
             <input type="submit" id="saveLineItem" value="Submit">
         </form>
     </div>

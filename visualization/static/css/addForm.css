@@ -55,9 +55,50 @@ body {
 
 #mainForm {
 	border: border: 2px solid red;
-	width: 33%;
+	width: 30%;
 	margin: auto;
 	
+}
+
+.FullWidthFormItem {
+	width: 100%;
+}
+
+#desc {
+	height: 50px;
+}
+
+#datesTable {
+	
+}
+
+#startdate {
+	width: 15%;
+}
+
+#startdate label {
+	width: 100px;
+	display:inline-block
+}
+
+#enddate {
+	width: 10%;
+}
+
+#enddate label {
+	width: 100px;
+	display:inline-block
+}
+
+#saveLineItem {
+	width: 100px;
+	height: 35px;
+	position: absolute;
+	right: 35%;
+	padding: 5px;
+	color: white;
+	background-color: #124191;
+	border-radius: 6px;
 }
 
 footer {
