@@ -20,8 +20,10 @@
         <p class="textStyle2">Get ChargeBee user data</p>
     </header>
     <div id="mainForm">
-        <h2>Add a New User</h2>
-        <h4>Please add new user activity to existing subscriptions</h4>
+		<div id="formHeader">
+			<h2>Add a New User</h2>
+			<h4>Please add new user activity to existing subscriptions</h4>
+		</div>
         <form action='saveLineItem/' method="post">
         {% csrf_token %}
             <div>

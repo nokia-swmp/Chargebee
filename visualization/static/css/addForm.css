@@ -43,8 +43,10 @@ body {
 }
 
 #mainForm {
-	width: 500;
+	border: border: 2px solid red;
+	width: 33%;
 	margin: auto;
+	
 }
 
 footer {
