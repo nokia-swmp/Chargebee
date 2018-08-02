@@ -36,6 +36,20 @@
     font-size: 24px;
 }
 
+#NokiaLogo {
+    width: 100px;
+    margin-left: 20px
+}
+
+#whiteHeaderSoftwareTitle {
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1.5px solid #888888;
+    font-family: NokiaPureHeadline_Light;
+    font-size: 19px;
+    letter-spacing: 0.7px;
+}
+
 body {
 	height: 100%;
 	margin: 0;
@@ -62,10 +76,20 @@ body {
     color: #787878;
 }
 
+body {
+	height: 100%;
+}
+
+#whiteHeader {
+	padding: 20px 0 20px 5px;
+}
+
 #AllNokiaSites {
 	position: absolute;
 	right: 30px;
-	
+	font-family: NokiaPureHeadline_Light;
+	color: #888888;
+	font-size: 19px;
 }
 
 #blueHeader {
