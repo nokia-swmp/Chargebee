@@ -30,7 +30,7 @@
             <div>
                 <label for="custs">Customer Name</label></br>
                 <select id="custs" class="FullWidthFormItem" name='custs' onchange='showSubscription(this)'>
-                    <option>Make a selection</option>
+					<option value="" disabled selected>Make a selection</option>
                     {% for cust in custs %}
                         <option>{{ cust }}</option>
                     {% endfor %}
@@ -39,7 +39,7 @@
                 </br>
                 <label for="subs">Subscriptions</label></br>
                     <select id="subs" class="FullWidthFormItem" name='subs'>
-                        <option>Make a selection</option>
+						<option value="" disabled selected>Make a selection</option>
                         {% for cust, list in subs.items %}
                             {% for sub in list %}
                                 <option id='{{ cust }}' value='{{ sub }}'>{{ sub }}</option>
