@@ -13,12 +13,16 @@
 
 <body>
     <header id="whiteHeader">
-        <div id="header1"><img src="{% static 'media/Nokia_wordmark.svg' %}" id="NokiaLogo"><span id="whiteHeaderSoftwareTitle">Software</span><span id="whiteHeader-tail">All Nokia Sites</span></div>
+        <div id="header1">
+			<a href="https://networks.nokia.com/"> <img src="{% static 'media/Nokia_wordmark.svg' %}" id="NokiaLogo"></a>
+			<a href="https://networks.nokia.com/software" id="whiteHeaderSoftwareTitle">Software</a>
+			<span id="whiteHeader-tail">All Nokia Sites</span>
+		</div>
     </header>
     <header id="blueHeader">
-        <p class="textStyle">ChargeBee Data Portal
+        <div class="textStyle">ChargeBee Data Portal
             </br><span class="textStyle2" id="blueHeaderSubtitle">Get ChargeBee user data</span>
-        </p>
+        </div>
     </header>
     <div id="mainForm">
 		<div id="formHeader">
