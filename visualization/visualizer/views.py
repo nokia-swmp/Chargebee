@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import sys
-sys.path.insert(0, 'C:/Users/VALKI/Documents/Chargebee')
-import getNames
+sys.path.insert(0, '..')
+from source import getNames
 
 def table(request):
     usage = getNames.initUsage()

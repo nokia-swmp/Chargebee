@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import getNames
-import add_testDb
+from source import getNames
+from source import add_testDb
 import addLineItem
 # Create your views here.
 
