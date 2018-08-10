@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'NokiaPureHeadline_Ultralight';
+    src: url('../fonts/NokiaPureHeadline_Ultralight.ttf') format("truetype"),
+        local('NokiaPureHeadline_Ultralight');
+}
+
+@font-face {
+    font-family: 'NokiaPureText_Medium';
+    src: url('../fonts/NokiaPureText-Medium.ttf') format("truetype"),
+        local('NokiaPureText_Medium');
+}
+
+@font-face{
+    font-family: 'NokiaPureHeadline_Light';
+    src: url('../fonts/NokiaPureHeadline_Light.ttf') format("truetype"),
+        local('NokiaPureHeadline_Light');
+}
+
+.textStyle {
+    font-family: NokiaPureHeadline_Ultralight;
+    font-size: 54px;
+}
+
+.textStyle2 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 24px;
+}
+
+.textStyle3 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 28px;
+}
+
+.textStyle4 {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 24px;
+}
+
+
+#maindiv {
+	height: 100%;
+	border: background-color: red;
+}
+
+footer {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 19px;
+    letter-spacing: 0.7px;
+	position: fixed;
+	bottom: 5px;
+	margin-left: 10px;
+	background-color: red;
+}
