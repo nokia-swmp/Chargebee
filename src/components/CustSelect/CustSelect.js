@@ -1,6 +1,3 @@
-
-// NINCS KOZE A TOBBIHOZ
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SelectItemNew } from '@nokia-csf-uxr/csfWidgets';

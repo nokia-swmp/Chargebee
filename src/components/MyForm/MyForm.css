@@ -56,50 +56,14 @@ input[type=textarea], textarea {
 	padding: 2px 0 2px 5px;
 }
 
-#datesTable {
-	position: relative;
-	top: -10px;
-	left: -3px;
+#DescDiv{
+    margin-top: 15px;
 }
 
-#startdate {
-	width: 15%;
+#SubmitButton {
+	margin-top: 30px;
 }
 
-#startdate label {
-	width: 100px;
-	display:inline-block
+#footerContainer {
+    height: 50px;
 }
-
-#enddate {
-	width: 10%;
-}
-
-#enddate label {
-	width: 100px;
-	display:inline-block
-}
-
-#desc {
-	/*height: 50px;*/
-}
-
-textarea {
-  resize: none;
-}
-
-#saveLineItem {
-	width: 100px;
-	height: 35px;
-	position: absolute;
-	right: 35%;
-	padding: 5px;
-	color: white;
-	background-color: #124191;
-	border: none;
-}
-
-#saveLineItem:hover {
-	cursor: pointer;
-}
-
