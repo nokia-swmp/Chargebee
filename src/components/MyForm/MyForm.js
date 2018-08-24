@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SelectItemNew, CalendarNew, TextArea, Label, TextInput, Button } from '@nokia-csf-uxr/csfWidgets';
+import { Link } from 'react-router';
 import '@nokia-csf-uxr/csfWidgets/csfWidgets.css';
 import './MyForm.css';
 import CustSelect from '../CustSelect/CustSelect';
@@ -8,7 +8,7 @@ import CustSelect from '../CustSelect/CustSelect';
 
 
 
-{/* ---------- FORM HTML ELEMENTS ----------------*/}
+/* ---------- FORM HTML ELEMENTS ----------------*/
 
 const FormHeader = 	<div id="formHeader">
 						<p id="blueFormHeader" class="textStyle3">Add a New User</p>
@@ -22,7 +22,7 @@ var ErrorElement =  <ul id="ErrorMessageList">
             </ul>
 
 
-{/* ---------- TEST CUTSTOMERS ----------------*/}
+/* ---------- TEST CUTSTOMERS ----------------*/
 
 const customers = [
   { label: 'Joe', value: 'Joe'},
@@ -33,7 +33,7 @@ const customers = [
   { label: 'Erica', value: 'Erica' },
 ];
 
-{/* ---------- TEST SUBS ----------------*/}
+/* ---------- TEST SUBS ----------------*/
 
 const subscriptions = [
   { label: 'Sub1', value: 'Sub1' },
@@ -45,13 +45,13 @@ const subscriptions = [
 ];
 
 
-{/* ---------- DEFAULT TEXTS ----------------*/}
+/* ---------- DEFAULT TEXTS ----------------*/
 const initial_costumer = '';
 const initial_subscription = '';
 const initial_amount = '';
 const initial_description_text = '';
 
-{/* ---------- MAIN MYFORM CLASS ----------------*/}
+/* ---------- MAIN MYFORM CLASS ----------------*/
 class MyForm extends React.Component {
 
     /* -------------- STATE -----------------*/
@@ -179,6 +179,7 @@ class MyForm extends React.Component {
                    isCallToAction
                 />
 			</div>
+			<Link to="/results">  Results</Link>
 			<div id="footerContainer"></div>
 		</div>
 	  )

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SelectItemNew } from '@nokia-csf-uxr/csfWidgets';
 import '@nokia-csf-uxr/csfWidgets/csfWidgets.css'
 

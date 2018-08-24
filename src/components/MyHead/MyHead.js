@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './MyHead.css';
 import Nokia from './Nokia.svg';
 
