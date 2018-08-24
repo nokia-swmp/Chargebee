@@ -117,7 +117,7 @@ constructor(props) {
             for (i = 0; i < Errors.length; i++)
                 Errors[i].style.display = "none";
             alert("Item succesfully added!");
-            this.props.router.push('results');}
+            this.props.router.push('/results');}
     }
 
 
