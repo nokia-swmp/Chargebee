@@ -1,6 +1,6 @@
 import React from 'react';
 import { SelectItemNew, CalendarNew, TextArea, Label, TextInput, Button } from '@nokia-csf-uxr/csfWidgets';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import '@nokia-csf-uxr/csfWidgets/csfWidgets.css';
 import './MyForm.css';
 import CustSelect from '../CustSelect/CustSelect';
@@ -53,6 +53,10 @@ const initial_description_text = '';
 
 /* ---------- MAIN MYFORM CLASS ----------------*/
 class MyForm extends React.Component {
+
+constructor(props) {
+    super(props)
+  }
 
     /* -------------- STATE -----------------*/
 
@@ -112,7 +116,8 @@ class MyForm extends React.Component {
             var i;
             for (i = 0; i < Errors.length; i++)
                 Errors[i].style.display = "none";
-            alert("Item succesfully added!"); }
+            alert("Item succesfully added!");
+            this.props.router.push('results');}
     }
 
 
@@ -186,7 +191,7 @@ class MyForm extends React.Component {
 	};
 }
 
-export default MyForm;
+export default withRouter(MyForm);
 
 
 /*
