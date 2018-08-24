@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SelectItemNew, CalendarNew, TextArea, Label, TextInput, Button } from '@nokia-csf-uxr/csfWidgets';
-import '@nokia-csf-uxr/csfWidgets/csfWidgets.css'
+import '@nokia-csf-uxr/csfWidgets/csfWidgets.css';
 import './MyForm.css';
+import CustSelect from '../CustSelect/CustSelect';
 
 
-{/* ---------- FORM HEADER ----------------*/}
+
+
+{/* ---------- FORM HTML ELEMENTS ----------------*/}
 
 const FormHeader = 	<div id="formHeader">
 						<p id="blueFormHeader" class="textStyle3">Add a New User</p>
 						<p id="greyFormHeader" class="textStyle4">Please add new user activity to existing subscriptions</p>
 					</div>
 
+var ErrorElement =  <ul id="ErrorMessageList">
+                 <li id="AmountErr" class="errors">Invalid amount!</li>
+                 <li id="DescriptionErr" class="errors">Description too long!</li>
+                 <li id="DateErr" class="errors">Invalid date!</li>
+            </ul>
+
+
 {/* ---------- TEST CUTSTOMERS ----------------*/}
 
 const customers = [
-  { label: 'Joe', value: 'Joe' },
+  { label: 'Joe', value: 'Joe'},
   { label: 'Sara', value: 'Sara' },
   { label: 'Dave', value: 'Dave' },
   { label: 'Anna', value: 'Anna' },
@@ -35,8 +45,11 @@ const subscriptions = [
 ];
 
 
-{/* ---------- DEFAULT DESC TEXT ----------------*/}
-const description_text = '';
+{/* ---------- DEFAULT TEXTS ----------------*/}
+const initial_costumer = '';
+const initial_subscription = '';
+const initial_amount = '';
+const initial_description_text = '';
 
 {/* ---------- MAIN MYFORM CLASS ----------------*/}
 class MyForm extends React.Component {
@@ -44,11 +57,11 @@ class MyForm extends React.Component {
     /* -------------- STATE -----------------*/
 
     state = {
-        selectedCust: '',
-        selectedSub: '',
-        desc: description_text,
-        charCount: description_text.length,
-        amount: '',
+        selectedCust: initial_costumer,
+        selectedSub: initial_subscription,
+        desc: initial_description_text,
+        charCount: initial_description_text.length,
+        amount: initial_amount,
         amountError: false,
         descLengthError: false,
         dateError: false,
@@ -70,7 +83,6 @@ class MyForm extends React.Component {
   
     onAmountChange = (newAmount) => { this.setState({ amount: newAmount.value });  }
 
-    /* onButtonClick = */
 
     /*--------------- VALIDATION --------------*/
 
@@ -82,12 +94,35 @@ class MyForm extends React.Component {
             {this.setState({ amountError: false});}
     }
 
+    onButtonClick = () => {
+        if (this.state.amount == initial_amount)
+        {
+            this.setState({amountError: true});
+            this.state.amountError = true;}
+        /* TODO: more emty checks like above */
+        if (this.state.amountError || this.state.descLengthError || this.state.dateError)
+        {
+            if (this.state.amountError) {
+                document.getElementById("AmountErr").style.display = "list-item"; }
+            if (this.state.descLengthError) {
+                document.getElementById("DescriptionErr").style.display = "list-item"; }
+            /*TODO: handle all errors */}
+        else {
+            var Errors = document.getElementsByClassName("errors");
+            var i;
+            for (i = 0; i < Errors.length; i++)
+                Errors[i].style.display = "none";
+            alert("Item succesfully added!"); }
+    }
+
+
     /* -------------- RENDER -----------------*/
 
     render() {
 	  return (
 		<div id="MyForm">
 			{FormHeader}
+			<div id="CustSelectDiv">
 			<SelectItemNew
 				id="CustSelect"
 				label="Customer Name"
@@ -97,7 +132,8 @@ class MyForm extends React.Component {
 				searchable={true}
 				unCommittedValueErrorMsg = "Customer not found"
 				isRequired
-			 />
+			/>
+			</div>
 			<SelectItemNew
 				id="SubSelect"
 				label="Subscription ID"
@@ -107,18 +143,18 @@ class MyForm extends React.Component {
 				searchable={true}
 				isRequired
 			/>
-			<TextInput
-				id="amount"
-				placeholder="Add amount"
-				label="Amount ($ per hour)"
-				focus
-				text={this.state.amount}
-				onChange={this.onAmountChange}
-				onBlur = {this.CheckIfAmountIsValid}
-				error = {this.state.amountError}
-				errorMsg = "Invalid amount"
-				required
-			/>
+            <TextInput
+                id="amount"
+                placeholder="Add amount"
+                label="Amount ($ per hour)"
+                focus
+                text={this.state.amount}
+                onChange={this.onAmountChange}
+                onBlur = {this.CheckIfAmountIsValid}
+                error = {this.state.amountError}
+                errorMsg = "Invalid amount"
+                required
+            />
 			<div id="DescDiv">
                 <Label id="DescLabel" text="Description" />
                 <TextArea
@@ -133,6 +169,7 @@ class MyForm extends React.Component {
                    maxCharCount={150}
                 />
 			</div>
+			{ErrorElement}
 			<div id="SubmitButton" align="right">
                 <Button
                    id="Submit"
@@ -149,3 +186,10 @@ class MyForm extends React.Component {
 }
 
 export default MyForm;
+
+
+/*
+TODO: SelectItem doesnt work (SelectedItem prop fail, Selecting with keyboard fail)
+TODO: Usage range Calendar can't be found in @nokia-csf library
+TODO: SelectedItem crashes with initial value other than ''
+*/

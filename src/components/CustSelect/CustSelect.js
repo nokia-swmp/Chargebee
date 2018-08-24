@@ -4,7 +4,7 @@ import { SelectItemNew } from '@nokia-csf-uxr/csfWidgets';
 import '@nokia-csf-uxr/csfWidgets/csfWidgets.css'
 
 
-const customers = [
+const customers2 = [
   { label: 'Joe', value: 'Joe' },
   { label: 'Sara', value: 'Sara' },
   { label: 'Dave', value: 'Dave' },
@@ -15,7 +15,7 @@ const customers = [
 
 class CustSelect extends React.Component {
   state = {
-    selectedItem: 'Joe'
+    selectedItem: ''
   }
   onChange = (newText) => {
     this.setState({
@@ -27,9 +27,12 @@ class CustSelect extends React.Component {
 		<SelectItemNew
 					id="custselect"
 					label="Select Customer"
-					options={customers}
+					options={customers2}
 					selectedItem={this.state.selectedItem}
 					onChange={this.onChange}
+                    searchable={true}
+                    unCommittedValueErrorMsg = "Customer not found"
+                    isRequired
 				 />
 	  )
 	};

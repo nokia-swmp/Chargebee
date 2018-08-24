@@ -6,9 +6,8 @@ import MyForm from './components/MyForm/MyForm';
 import './App.css';
 
 
-class MySite extends React.Component {
 
- 
+class MySite extends React.Component {
 
   render() {
     return (

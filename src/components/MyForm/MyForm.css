@@ -58,12 +58,39 @@ input[type=textarea], textarea {
 
 #DescDiv{
     margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.errors {
+    font-family: NokiaPureHeadline_Light;
+    font-size: 16px;
+    color: red;
+    display: none;
+
 }
 
 #SubmitButton {
-	margin-top: 30px;
+	margin-top: 0px;
 }
 
 #footerContainer {
     height: 50px;
+}
+
+
+
+
+#CustSelectDiv {
+    position: relative;
+}
+
+#CustText {
+    position: absolute;
+    left: 8px;
+    top: 24px;
+    color: rgb(0,0,0,0.43);
+    font-family: NokiaPureHeadline_Light;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+
 }
